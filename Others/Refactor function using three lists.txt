@@ -1,0 +1,31 @@
+//Rewrite/refactor the following codes 
+/*
+private void setGameModel(List<Record> records, List<Record> gameList, List<String> eventIds) {
+	List<Record> gameModel = new ArrayList<>();
+	for (Record game : gameList) {
+		String _game = game.getStr("value");
+		int idx = 0;
+		for (String eventId : eventIds) {
+			for (Record record : records) {
+				String _eventId = record.getStr("eventId");
+				if (record.getStr("game").equals(_game) &&	eventId.equals(_eventId)) {
+					idx++;
+				}
+			}
+		}
+		if (idx > 0) {
+			gameModel.add(game);
+		}
+	}
+	set("gameModel", gameModel);
+}
+*/
+
+
+private static void setGameModel(List<Record> records, List<Record> gameList, List<String> eventIds) {
+	Map<String, Record> map = records.stream().collect(Collectors.toMap(r -> r.getStr("game"), r -> r));
+	List<Record> gameModel = gameList.stream().filter(s -> (map.get(s.getStr("value"))!=null))
+			.filter(s -> eventIds.contains(s.getStr("eventId"))).collect(Collectors.toList());
+	set("gameModel", gameModel);
+	
+}

@@ -1,0 +1,8 @@
+//Count minimal number of jumps from position X to Y.
+//given three integers X(initial position), Y(destination) and D(jump distance), return the minimal number of jumps from position X to a position equal to or greater than Y
+
+int steps = (Y-X)/D;
+if(steps*D+X < Y)
+    steps+=1;
+
+return steps;

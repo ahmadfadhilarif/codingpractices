@@ -1,0 +1,18 @@
+//given an array A consisting of N integers representing the falling leaves. A[K] represents the position where one leaf falls at time K, measured in seconds.
+//find the earliest time when the frog can jump to the other side of the river. The frog can cross only when leaves appear at every position across the river from 1 to X
+//given a non-empty array A consisting of N integers and integer X, returns the earliest time when the frog can jump to the other side of the river.
+
+
+int time=-1;
+ArrayList<Integer> spots= new ArrayList<>();
+
+for(int i=1;i<=X;i++)
+    spots.add(i);
+
+for(int i=0;i<A.length;i++){
+    if(spots.contains(A[i]))
+        spots.remove((Integer)A[i]);
+    if(spots.isEmpty()){
+        time=i;break;}
+}
+return time;

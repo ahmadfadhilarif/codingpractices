@@ -1,0 +1,13 @@
+//given start(the starting number) and end(the last number), return the number of palindrome(s) exists between the numbers
+
+public int countPalindrome(int start, int end) {
+
+    int count = 0;
+    for(int i = start; i <= end; i++) {
+        String s = String.valueOf(i);
+        if(s.equalsIgnoreCase(new StringBuilder(s).reverse().toString())) 
+			count++;
+        //another way without reverse would be to compare from forward and backwards at the same time in a loop
+    }
+    return count;
+}

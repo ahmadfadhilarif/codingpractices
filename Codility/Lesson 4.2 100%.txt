@@ -1,0 +1,10 @@
+//given an array A, return 1 if array A is a permutation and 0 if it is not
+
+boolean isPermutation = true;
+Set<Integer> set = new HashSet<>();
+for (int value : A) {
+	if (value < 1 || value > A.length || !set.add(value)) {
+		isPermutation = false;
+	}
+}
+return isPermutation ? 1 : 0;

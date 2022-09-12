@@ -1,0 +1,28 @@
+//Find longest sequence of zeros in binary representation of an integer.
+//given a positive integer N, returns the length of its longest binary gap. return 0 if N doesn't contain a binary gap.
+
+String s = Integer.toBinaryString(N);
+int[] numArr = new int[s.length()];
+
+for (int i = 0; i < s.length(); i++) {
+    numArr[i] = Character.digit(s.charAt(i), 10);
+}   
+int temp = 0,exact = 0;
+for(int i=0;i<s.length();i++){
+    
+    if(numArr[i]==1 && temp>0)
+        if(temp>exact){
+            exact = temp;
+            temp = 0;
+        }
+    if(numArr[i]==0 && temp>0)
+        temp++;
+    if(numArr[i]==1 && i!=(s.length()-1)){
+        if(numArr[i+1]==0){
+            temp = 1;
+            i++;
+        }
+    }
+}
+
+return exact;

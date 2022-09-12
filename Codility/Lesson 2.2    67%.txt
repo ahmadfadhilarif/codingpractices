@@ -1,0 +1,18 @@
+//Find value that occurs in odd number of elements. 67% Success
+//given an array A consisting of N integers, return the value of the element that does not have a pair.
+
+Set<Integer> s = new HashSet();
+int[] B = new int[A.length];
+for(int i=0,j=0;i<A.length;i++){
+    if(!s.add(A[i])){
+        B[j]=A[i];
+        j++;
+    }
+}
+
+for(int num: B){
+    if(s.contains(num))
+        s.remove(num);
+}
+return (int)s.toArray()[0];
+

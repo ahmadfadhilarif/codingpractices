@@ -1,0 +1,14 @@
+326 LINES
+
+FEATURES
+-> Each account has a username, primary password, secondary password and the amount of money left in the bank.
+-> First main menu provides service to login to user account, create new account and to quit system.
+-> The database file for the project is "userData.txt" which is included with the project.
+-> The database already has information about a few accounts and still allows account creations.
+-> Each row in the database file represents the data for each account which is the username,
+   primary password, secondary password and money left in the bank( each separated by spaces ).
+-> Each login has 3 outcomes, either "Access Granted!" or "Wrong Password!" or " No such user is found!".
+-> Account creation has been improved to prevent creation of two or more accounts with the same username.
+-> User can directly login into the system after the user's account has been created
+-> Only 2 functions were able to be provided by the program which is deposit money and withdraw money.
+-> the effects of deposit money and withdraw money is permanent as the final result is stored inside the database.
